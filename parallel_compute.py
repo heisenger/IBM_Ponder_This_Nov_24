@@ -1,7 +1,5 @@
 import numpy as np
 from multiprocessing import Pool
-
-from scipy.optimize import fsolve
 import numpy as np
 
 
@@ -24,29 +22,6 @@ def volume_cal(s_01, s_02, s_12, s_03, s_13, s_23):
     )
 
     return squared_vol
-
-
-def find_s23(s_01, s_02, s_12, s_03, s_13, target_volume):
-    def func(s_23):
-        # volume_sq = volume(s_01, s_02, s_12, s_03, s_13, s_23)
-        volume_sq = (
-            (2 * s_01 * s_02 * s_03) ** 2
-            + (s_01**2 + s_02**2 - s_12**2)
-            * (s_01**2 + s_03**2 - s_13**2)
-            * (s_02**2 + s_03**2 - s_23**2)
-            - (s_01**2) * (s_02**2 + s_03**2 - s_23**2) ** 2
-            - (s_02**2) * (s_01**2 + s_03**2 - s_13**2) ** 2
-            - (s_03**2) * (s_01**2 + s_02**2 - s_12**2) ** 2
-        )
-        # print(type(volume_sq))
-        return volume_sq - target_volume
-
-    # Initial guess for s_23 (can be adjusted based on the problem)
-    initial_guess = np.mean([s_01, s_02, s_12, s_03, s_13])
-
-    # Find the root using fsolve
-    s_23_solution = fsolve(func, initial_guess)
-    return s_23_solution[0]
 
 
 def process_s_01(s_01):
