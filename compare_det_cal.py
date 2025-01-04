@@ -85,12 +85,12 @@ def calculate_volumes_and_determinants_and_test_speed(iterations=100):
         f"Numpy Determinant Calculation - Avg Time: {np_det_avg:.6f} seconds, Std Dev: {np_det_std:.6f}"
     )
     print(
-        f"Scipy Determinant Calculation - Avg Time: {sympy_det_avg:.6f} seconds, Std Dev: {sympy_det_std:.6f}"
+        f"Sympy Determinant Calculation - Avg Time: {sympy_det_avg:.6f} seconds, Std Dev: {sympy_det_std:.6f}"
     )
 
     plt.figure(figsize=(10, 6))
     plt.errorbar(
-        ["Volume", "Numpy Det", "Scipy Det"],
+        ["Volume", "Numpy Det", "Sympy Det"],
         [volume_avg, np_det_avg, sympy_det_avg],
         yerr=[volume_std, np_det_std, sympy_det_std],
         fmt="o",
