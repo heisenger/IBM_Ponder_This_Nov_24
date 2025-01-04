@@ -7,7 +7,7 @@ The main computation is performed in the `parallel_compute.py` module.
 
 In the `compare_det_cal` function, we compare several ways to compute determinants to evaluate their performance and accuracy.
 
-A full write-up is available here: 
+A full write-up is available here: https://medium.com/puzzle-sphere/finding-integer-tetrahedrons-with-a-given-volume-1d4a0ed0813b
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
